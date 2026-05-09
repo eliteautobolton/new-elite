@@ -1,41 +1,26 @@
-// Fade-in on scroll
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('in');
-      observer.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.08 });
+# Elite Autos — Website
 
-document.querySelectorAll('.fi').forEach(el => observer.observe(el));
+## Files
+- `index.html` — Main HTML page
+- `style.css` — All styles
+- `main.js` — Scroll animations & form handling
+- `images/logo.png` — Your logo
 
-// Smooth active nav highlight
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+## To go live
+1. Upload all files (keeping the folder structure) to your hosting / cPanel
+2. Point your domain `elitedetail.xyz` to the hosting root
 
-const navObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      navLinks.forEach(a => a.style.color = '');
-      const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
-      if (active && !active.classList.contains('nav-cta')) {
-        active.style.color = '#F4F4F2';
-      }
-    }
-  });
-}, { rootMargin: '-40% 0px -55% 0px' });
+## Booking form
+When a customer submits the form, WhatsApp opens on their device with all their details
+pre-filled in a message to +447988770864. They just hit send.
 
-sections.forEach(s => navObs.observe(s));
+No backend or third-party service needed.
 
-// Form submission (placeholder — wire up to your backend or Formspree)
-const form = document.querySelector('.book-form');
-if (form) {
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const btn = form.querySelector('.btn-primary');
-    btn.textContent = 'Enquiry sent ✓';
-    btn.style.background = '#1a7a3c';
-    btn.disabled = true;
-  });
-}
+## Fonts
+Loaded from Google Fonts (Barlow + Barlow Condensed). Requires internet connection.
+To self-host fonts, download from https://fonts.google.com and update the CSS.
+
+## Customisation
+- Colours: edit `:root` variables at the top of `style.css`
+- Phone number: add to the contact section in `index.html`
+- Social links: add to the footer in `index.html`
