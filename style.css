@@ -1,0 +1,37 @@
+# Elite Autos — Website
+
+## Files
+- `index.html` — Main HTML page
+- `style.css` — All styles
+- `main.js` — Scroll animations & form handling
+- `images/logo.png` — Your logo
+
+## To go live
+1. Upload all files (keeping the folder structure) to your hosting / cPanel
+2. Point your domain `elitedetail.xyz` to the hosting root
+
+## Booking form
+The form currently shows a confirmation message on submit.
+To make it actually send emails, connect it to a free service:
+
+**Option A — Formspree (easiest)**
+1. Sign up at https://formspree.io
+2. Create a form and copy your form ID
+3. In `index.html`, change:
+   `<form class="book-form" action="#" method="POST">`
+   to:
+   `<form class="book-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">`
+4. Remove the JS form handler at the bottom of `main.js`
+
+**Option B — Netlify Forms (if hosting on Netlify)**
+Add `netlify` attribute to the form tag:
+`<form class="book-form" netlify name="booking" method="POST">`
+
+## Fonts
+Loaded from Google Fonts (Barlow + Barlow Condensed). Requires internet connection.
+To self-host fonts, download from https://fonts.google.com and update the CSS.
+
+## Customisation
+- Colours: edit `:root` variables at the top of `style.css`
+- Phone number: add to the contact section in `index.html`
+- Social links: add to the footer in `index.html`
